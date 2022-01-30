@@ -147,4 +147,4 @@ defun ADS_drawCells (L, W, gen, pin_point)
 de_open_workspace("C:\Users\stefa\ADS_wrk\AEL_Python_wrk");
 decl context = de_get_design_context_from_name("AEL_Python_lib:gen0:layout");
 de_show_context_in_new_window(context);
-ADS_drawCells (28, 28, [0,1,0,1,1,0,0,1], 1);
+ADS_drawCells (28, 28, [0,1,0,1,0,0,1,0], 15);
