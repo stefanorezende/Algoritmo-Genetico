@@ -138,7 +138,4 @@ de_open_workspace("C:\Users\stefa\ADS_wrk\Koch_LogPer_wrk");
 decl context = de_get_design_context_from_name("Koch_LogPer_lib:cell_1:layout");
 de_show_context_in_new_window(context);
 
-
-ADS_drawLogP(2.32, 44.52, 20, [1, 2, 3, 0, 4, 1],[30, 25, 50, 36, 42.12, 10],[44.52, 30.45, 39.78, 29.13, 21.54, 10.20], 1);
-
-
+ADS_drawLogP(3.33, 42.5, 11, [2, 3, 1, 3, 3, 0], [47.5, 41.25, 32.5, 33.75, 25.0, 15.0], [3.98, 14.17, 19.48, 24.79, 36.74, 31.43], 2);
