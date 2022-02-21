@@ -1,15 +1,15 @@
 from numpy.random import rand
 from numpy.random import randint
-import ga
+from ga import genetic_algorithm
 
 if __name__ == "__main__":
-    n_gen = 8
-    n_pop = 20
-    n_cell = 16
+    n_gen = 10
+    n_pop = 6   # Must be a integer pair
+    n_bits = 85
     r_cross = 0.9
-    r_mut = 1.0/float(n_cell)
+    r_mut = 1.0/float(n_bits)
 
-    best, best_eval = ga.genetic_algorithm(n_gen, n_pop, n_cell, r_cross, r_mut)
+    best, best_eval = genetic_algorithm(n_gen, n_pop, n_bits, r_cross, r_mut)
 
     bestString = '\nBest = {} Fit = {}'
     print('Done!')

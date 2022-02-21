@@ -1,6 +1,7 @@
 from numpy.random import rand
 from numpy.random import randint
 import system as sy
+import pandas as pd
 
 def selection(pop, scores, k=3):
 	# first random selection
@@ -32,21 +33,25 @@ def mutation(bitstring, r_mut):
 			# flip the bit
 			bitstring[i] = 1 - bitstring[i]
 
-def genetic_algorithm(n_gen, n_pop, n_cell, r_cross, r_mut):
-    n_bits = int(n_cell/2)
+def genetic_algorithm(n_gen, n_pop, n_bits, r_cross, r_mut):
     pop = [randint(0,2,n_bits).tolist() for _ in range(n_pop)]
     
     scores = [0 for i in range(n_pop)]
     best, best_eval = 0, 0
 
+    temp = pd.DataFrame()
+    df = pd.DataFrame()
+
     for gen in range(n_gen):
-        sy.write_aelFunction(gen, pop)
+        callf_arr = sy.write_aelFunction(gen, pop)
         sy.callAelCMD(gen)
-        scores = sy.read_fitFunction(gen) 
+        scores = sy.read_fitFunction()
+        df = sy.write_df(temp, df, gen, pop, callf_arr,scores)
         for i in range(n_pop):
             if scores[i] > best_eval:
                 best, best_eval = pop[i], scores[i]
-                print(">Gen{}, new best {} {}= {}".format(gen, pop[i], scores[i]))
+                print('>Gen %s, new best %s = %s' %(gen, best, best_eval))
+        
         # select parents
         selected = [selection(pop, scores) for _ in range(n_pop)]
 
@@ -63,5 +68,5 @@ def genetic_algorithm(n_gen, n_pop, n_cell, r_cross, r_mut):
                 children.append(c)
         # replace population
         pop = children
-
+    df.to_csv('df_gens.csv', sep=';')
     return (best, best_eval)
