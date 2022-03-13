@@ -3,7 +3,7 @@ from numpy.random import randint
 import system as sy
 import pandas as pd
 
-def selection(pop, scores, k=3):
+def selection(pop, scores, k=4):
 	# first random selection
 	selection_ix = randint(len(pop))
 	for ix in randint(0, len(pop), k-1):
@@ -68,5 +68,5 @@ def genetic_algorithm(n_gen, n_pop, n_bits, r_cross, r_mut):
                 children.append(c)
         # replace population
         pop = children
-    df.to_csv('df_gens.csv', sep=';')
+    df.to_csv('df_gens.csv', sep=';', decimal = ',')
     return (best, best_eval)

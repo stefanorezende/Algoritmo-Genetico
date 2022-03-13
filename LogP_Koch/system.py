@@ -152,7 +152,7 @@ def read_fitFunction():
 
 def write_df(temp, df, gen, pop, callf_arr,scores):   
     
-    temp['gen'] = np.resize(['gen%s'%(gen)], len(temp))
+    temp['gen'] = np.resize(['gen%s'%(gen)], len(pop))
     temp['indv'] = pop
     temp ['callf'] = callf_arr
     temp['scores'] = scores

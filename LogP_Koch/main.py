@@ -3,8 +3,8 @@ from numpy.random import randint
 from ga import genetic_algorithm
 
 if __name__ == "__main__":
-    n_gen = 10
-    n_pop = 6   # Must be a integer pair
+    n_gen = 5
+    n_pop = 10   # Must be a integer pair
     n_bits = 85
     r_cross = 0.9
     r_mut = 1.0/float(n_bits)
