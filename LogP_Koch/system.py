@@ -18,14 +18,40 @@ def encod_func (indv):
     Lstubin = ''.join([str(b) for b in indv[7:11]]) # 4 bits
     Lstub = 10+int(Lstubin,2)
 
-    # Degree
+    # Monopole 1
     deg1bin = ''.join([str(b) for b in indv[11:13]]) # 2 bits
-    deg2bin = ''.join([str(b) for b in indv[13:15]]) # 2 bits
-    deg3bin = ''.join([str(b) for b in indv[15:17]]) # 2 bits
-    deg4bin = ''.join([str(b) for b in indv[17:19]]) # 2 bits
-    deg5bin = ''.join([str(b) for b in indv[19:21]]) # 2 bits
-    deg6bin = ''.join([str(b) for b in indv[21:23]]) # 2 bits
+    Lmon1bin = ''.join([str(b) for b in indv[13:18]]) # 5 bits
+    Ymon1bin = ''.join([str(b) for b in indv[18:23]]) # 5 bits
 
+    # Monopole 2
+    deg2bin = ''.join([str(b) for b in indv[23:25]]) # 2 bits
+    Lmon2bin = ''.join([str(b) for b in indv[25:30]]) # 5 bits
+    Ymon2bin = ''.join([str(b) for b in indv[30:35]]) # 5 bits
+
+    # Monopole 3
+    deg3bin = ''.join([str(b) for b in indv[35:37]]) # 2 bits
+    Lmon3bin = ''.join([str(b) for b in indv[37:42]]) # 5 bits
+    Ymon3bin = ''.join([str(b) for b in indv[42:47]]) # 5 bits
+
+    # Monopole 4
+    deg4bin = ''.join([str(b) for b in indv[47:49]]) # 2 bits
+    Lmon4bin = ''.join([str(b) for b in indv[49:54]]) # 5 bits
+    Ymon4bin = ''.join([str(b) for b in indv[54:59]]) # 5 bits
+
+
+    # Monopole 5
+    deg5bin = ''.join([str(b) for b in indv[59:61]]) # 2 bits
+    Lmon5bin = ''.join([str(b) for b in indv[61:66]]) # 5 bits
+    Ymon5bin = ''.join([str(b) for b in indv[66:71]]) # 5 bits
+
+
+    # Monopole 6
+    deg6bin = ''.join([str(b) for b in indv[71:73]]) # 2 bits
+    Lmon6bin = ''.join([str(b) for b in indv[73:78]]) # 5 bits
+    Ymon6bin = ''.join([str(b) for b in indv[78:83]]) # 5 bits
+
+
+    # Degree
     deg1 = int(deg1bin,2)
     deg2 = int(deg2bin,2)
     deg3 = int(deg3bin,2)
@@ -36,13 +62,6 @@ def encod_func (indv):
     Degree = '[%s, %s, %s, %s, %s, %s]' %(deg1, deg2, deg3, deg4, deg5, deg6)
 
     # Lmon
-    Lmon1bin = ''.join([str(b) for b in indv[23:28]]) # 5 bits
-    Lmon2bin = ''.join([str(b) for b in indv[28:33]]) # 5 bits
-    Lmon3bin = ''.join([str(b) for b in indv[33:38]]) # 5 bits
-    Lmon4bin = ''.join([str(b) for b in indv[38:43]]) # 5 bits
-    Lmon5bin = ''.join([str(b) for b in indv[43:48]]) # 5 bits
-    Lmon6bin = ''.join([str(b) for b in indv[48:53]]) # 5 bits
-
     Lmon1 = 10+int(Lmon1bin,2)*1.25
     Lmon2 = 10+int(Lmon2bin,2)*1.25
     Lmon3 = 10+int(Lmon3bin,2)*1.25
@@ -53,13 +72,6 @@ def encod_func (indv):
     Lmon = '[%s, %s, %s, %s, %s, %s]' %(Lmon1, Lmon2, Lmon3, Lmon4, Lmon5, Lmon6)
 
     # Ymon
-    Ymon1bin = ''.join([str(b) for b in indv[53:58]]) # 5 bits
-    Ymon2bin = ''.join([str(b) for b in indv[58:63]]) # 5 bits
-    Ymon3bin = ''.join([str(b) for b in indv[63:68]]) # 5 bits
-    Ymon4bin = ''.join([str(b) for b in indv[68:73]]) # 5 bits
-    Ymon5bin = ''.join([str(b) for b in indv[73:78]]) # 5 bits
-    Ymon6bin = ''.join([str(b) for b in indv[78:83]]) # 5 bits
-
     Ymon1 = round(Ls/3*math.ceil(1/2)-int(Ymon1bin,2)*Ls/96, 2)
     Ymon2 = round(Ls/3*math.ceil(2/2)-int(Ymon2bin,2)*Ls/96, 2)
     Ymon3 = round(Ls/3*math.ceil(3/2)-int(Ymon3bin,2)*Ls/96, 2)
@@ -69,7 +81,7 @@ def encod_func (indv):
 
     Ymon = '[%s, %s, %s, %s, %s, %s]' %(Ymon1, Ymon2, Ymon3, Ymon4, Ymon5, Ymon6)
 
-
+    #Substract
     Subsbin = ''.join([str(b) for b in indv[83:85]])
     Subs = int(Subsbin,2)
 
