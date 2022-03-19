@@ -1,9 +1,12 @@
 from numpy.random import rand
 from numpy.random import randint
 from ga import genetic_algorithm
+import time
 
 if __name__ == "__main__":
-    n_gen = 5
+    start_time = time.time()
+
+    n_gen = 20
     n_pop = 10   # Must be a integer pair
     n_bits = 85
     r_cross = 0.9
@@ -20,5 +23,10 @@ if __name__ == "__main__":
 #Correções: 
 # Salvar metade da população para a prox GEN
 # Fazer dataframe (geração, Cromossomos, score) exportar em .csv
+    rsecs= time.time() - start_time
+
+    f = open('df_gens.csv','a+')
+    f.write('\nRunning Time: %s:%s:%s hours' %(round(rsecs/3600), round(rsecs%3600/60), round(rsecs%60,3)))
+    f.close()
 
     print('breakpoint')

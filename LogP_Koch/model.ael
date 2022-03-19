@@ -78,9 +78,9 @@ defun runSimulation(Subst){
 	decl portDefinitions = list(list(list("P1"), list("P2"), 50.0, 0.0, PORT_CALIBRATION_NONE, 0.0));
 	db_set_port_definitions(context, portDefinitions);
 	
-	decl emSetup = list("Kappa438_60", "Duroid5880", "BoroSilicateGlass", "Kappa438_60");
+	decl emSetup = list("Kappa438_60", "Duroid5880", "Duroid6006", "Duroid6010");
 
-	deem_run_em_setup(de_get_current_design_context(), emSetup[Subst]);
+	deem_run_em_setup(de_get_current_design_context(), "Kappa438_60"); //emSetup[Subst]);
 }
 
 defun ADS_drawKochCurve(n, L, degree, pos){	
